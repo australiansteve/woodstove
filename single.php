@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts.
  *
- * @package Heisenberg
+ * @package Woodstove
  */
 
 get_header(); ?>

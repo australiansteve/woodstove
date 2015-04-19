@@ -1,4 +1,4 @@
-Heisenberg - Zeek Starter Theme
+Woodstove - Zeek Starter Theme
 ===
 
 This is the Zeek Starter theme, based on Underscores and Foundation 5.5.1.
