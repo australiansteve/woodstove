@@ -26,7 +26,8 @@ gulp.task('styles', function() {
 	return sass('assets/sass/', {
 			style: 'expanded',
 			lineNumbers: true,
-			container: 'woodstove' 
+			container: 'woodstove',
+			sourcemap: true
 		})
 		.on('error', notify.onError(function(error) {
 			return "Error: " + error.message;
