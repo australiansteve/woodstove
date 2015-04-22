@@ -53,6 +53,16 @@
 
 						<div class="small-12 columns"><!-- .columns start -->
 
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="site-logo" src="http://localhost/theme-dev/wp-content/uploads/2015/04/australian-steve-logo-white.png" /></a>
+
+						</div><!-- .columns end -->
+
+					</div><!-- .row end -->
+
+					<div class="row"><!-- .row start -->
+
+						<div class="small-12 columns"><!-- .columns start -->
+
 							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 
 						</div><!-- .columns end -->

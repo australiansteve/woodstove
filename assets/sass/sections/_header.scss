@@ -3,7 +3,17 @@
 }
 
 .site-branding {
+	margin-top: 1.25rem;
 	margin-bottom: 1.25rem;
+	text-align: center;
+
+    img.site-logo {
+        width: auto; /*or your image's width*/
+        height: auto; /*or your image's height*/
+        margin: 0;
+        padding: 0;
+        max-height: 400px;
+    }
 }
 
 .site-title {
