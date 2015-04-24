@@ -111,11 +111,13 @@ if ( !function_exists( 'woodstove_styles' ) ) :
 
 			// Enqueue our debug stylesheet [development mode - non-minified]
 			wp_enqueue_style( 'woodstove_styles', get_stylesheet_directory_uri() . '/assets/css/app.css', '', '9' );
+			wp_enqueue_style( 'font_awesome_styles', get_stylesheet_directory_uri() . '/assets/components/components-font-awesome/css/font-awesome.css', '', '9' );
 
 		else :
 
 			// Enqueue our minified stylesheet [production mode - minified stylesheet]
 			wp_enqueue_style( 'woodstove_styles', get_stylesheet_directory_uri() . '/assets/css/app.min.css', '', '9' );
+			wp_enqueue_style( 'font_awesome_styles', get_stylesheet_directory_uri() . '/assets/components/components-font-awesome/css/font-awesome-min.css', '', '9' );
 
 		endif;
 
