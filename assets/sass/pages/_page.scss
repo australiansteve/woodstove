@@ -2,10 +2,6 @@
 	margin: 2rem 0;
 }
 
-.entry-meta {
-	margin-bottom: 1.25rem;
-}
-
 .updated {
 	display: none;
 }
@@ -22,6 +18,62 @@
 	font-size: 1rem;
 }
 
+.entry-meta {
+	margin-bottom: 1.25rem;
+	font-size: 0.8rem;
+	text-align: right;
+
+	a {
+		font-size: 0.8rem;
+	}
+}
+
 .entry-content p {
 	margin-bottom: 1.25rem;
+}
+
+.entry-header {
+	padding-top: 3rem;
+}
+
+article {
+	padding: 0 1rem;
+	background: #EEEEEE;
+	margin-bottom: 6rem;
+	margin-top: 3rem;
+
+	footer {
+		border-top: 1px solid rgba(0,0,0,0.3);
+		font-size: 0.8rem;
+		padding: 0.5rem 0;
+	}
+
+	pre {
+		background: #DDDDDD;
+		margin-bottom: 1rem;
+		font-size: 0.8rem;
+	}
+
+	figure {
+		width: inherit;
+    	text-align: center;		    
+    	width: inherit !important; /* Overwrites the size specified by the file in WP */
+	}
+
+	figcaption {
+		text-align: center;
+		font-size: 0.75rem;
+		border-bottom: 1px solid rgba(0,0,0,0.3);
+		padding-bottom: 0.5rem;
+		max-width: 50%;
+		margin: auto;
+		margin-top: 0.5rem;
+	}
+}
+
+article.post:before {
+	content: url('http://australiansteve.com/blog/wp-content/uploads/2015/04/australian-steve-logo-white-small.png');
+	position: absolute;
+	margin-top: -60px;
+	margin-left: calc(50% - 70px);
 }
