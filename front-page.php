@@ -16,7 +16,7 @@ get_header(); ?>
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 
-			<?php query_posts('cat=3'); ?> <!-- Category 3 = PROFESSIONAL -->
+			<?php query_posts('category_name=professional'); ?> <!-- PROFESSIONAL posts ONLY -->
 			<?php if ( have_posts() ) : ?>
 
 				<?php /* Start the Loop */ ?>
