@@ -89,11 +89,21 @@
 
 			<div class="small-12 columns"><!-- .columns start -->
 
-				<nav id="site-navigation" class="top-bar hide-for-small" data-topbar role="navigation">
-					<section class="top-bar-section">
-						<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-					</section>
-				</nav><!-- #site-navigation -->
+				<div class="sticky">
+
+					<nav id="site-navigation" class="top-bar" data-topbar role="navigation">
+						<ul class="title-area">
+					    	<li class="name"></li>
+					     	<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+					    	<li class="toggle-topbar menu-icon"><a href=""><span></span></a></li>
+					  	</ul>
+
+						<section class="top-bar-section">
+							<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+						</section>
+					</nav><!-- #site-navigation -->
+
+				</div><!-- .sticky -->
 
 			</div><!-- .columns end -->
 
