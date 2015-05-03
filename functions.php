@@ -121,6 +121,7 @@ if ( !function_exists( 'woodstove_styles' ) ) :
 
 		endif;
 
+		wp_enqueue_style( 'theme_styles', get_stylesheet_directory_uri() . '/style.css', '', '9' );
 
 	}
 
