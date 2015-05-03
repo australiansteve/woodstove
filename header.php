@@ -53,7 +53,7 @@
 
 						<div class="small-12 columns"><!-- .columns start -->
 
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="site-logo" src="http://localhost/theme-dev/wp-content/uploads/2015/04/australian-steve-logo-white.png" /></a>
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="site-logo" src="http://australiansteve.com/blog/wp-content/uploads/2015/04/australian-steve-logo-white.png" /></a>
 
 						</div><!-- .columns end -->
 

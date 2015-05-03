@@ -117,12 +117,6 @@ function woodstove_entry_footer() {
 		}
 	}
 
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( __( 'Leave a comment', 'woodstove' ), __( '1 Comment', 'woodstove' ), __( '% Comments', 'woodstove' ) );
-		echo '</span>';
-	}
-
 	edit_post_link( __( 'Edit', 'woodstove' ), '<span class="edit-link">', '</span>' );
 }
 endif;
