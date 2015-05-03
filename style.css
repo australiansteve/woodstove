@@ -13,3 +13,9 @@ Tags: Foundation, sass, gulp, bower
 Woodstove is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 
 */
+
+
+/* Overwrite default styling of lists in 'jquery-archive-list-widget' */
+.widget.widget_jal_widget ul {
+	list-style-type: none;
+}
