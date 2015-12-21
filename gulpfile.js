@@ -4,21 +4,7 @@ var	gulp			=	require('gulp'),
 	notify			=	require('gulp-notify'), // Basic gulp notificatin using OS
 	minifycss		=	require('gulp-minify-css'), // Minification
 	rename			=	require('gulp-rename'), // Allows us to rename our css file prior to minifying 
-	autoprefixer	=	require('gulp-autoprefixer'), // Adds vendor prefixes for us
-	browserSync		=	require('browser-sync'); // Sends php, js, img and css updates to browser for us
-
-// Our browser-sync task.  
-
-gulp.task('browser-sync', function() {
-	var files = [
-		'**/*.php'
-	];
-
-	browserSync.init(files, {
-		proxy: 'localhost/'
-	});
-});
-
+	autoprefixer	=	require('gulp-autoprefixer'); // Adds vendor prefixes for us
 
 // Our 'styles' tasks, which handles our sass actions such as compliling and minification
 
@@ -48,9 +34,32 @@ gulp.task('styles', function() {
 		}));
 });
 
+//Our 'deploy' task which deploys on a local dev environment
+
+gulp.task('deploylocal', function() {
+
+	var files = [
+		'assets/components/modernizr/modernizr.js',
+		'assets/components/fastclick/lib/fastclick.js',
+		'assets/components/foundation/js/foundation.min.js',
+		'assets/css/*', 
+		'inc/**.*',
+		'js/**/*.js',
+		'languages/**.*',
+		'layouts/**.*',
+		'page-templates/**/*',
+		'screenshot.png',
+		'*.php',
+		'style.css'];
+
+	var dest = '/var/www/html/theme-dev/wp-content/themes/woodstove';
+
+	return gulp.src(files, {base:"."})
+	        .pipe(gulp.dest(dest));
+});
 
 // Our default gulp task, which runs 'styles' when a sass file changes.  This is task is executed by typing 'gulp' on the Terminal
-gulp.task('default', ['styles', 'browser-sync'], function() {
+gulp.task('default', ['styles', 'deploylocal'], function() {
 	// Watch our sass files and run 'styles' task when changes are made
 	gulp.watch('assets/sass/**/*.scss', ['styles']);
 })
