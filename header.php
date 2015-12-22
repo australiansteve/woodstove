@@ -70,8 +70,10 @@
 				<div class="small-12 columns"><!-- .columns start -->
 
 						<div class="title-bar show-for-small-only" data-responsive-toggle="primary-menu" data-hide-for="medium">
-								<button class="menu-icon" type="button" data-toggle=""></button>
+							<div data-toggle="">
+								<button class="menu-icon" type="button" ></button>
 								<div class="title-bar-title">Menu</div>
+							</div>
 						</div>
 
 						<div id="primary-menu" class="top-bar primary-navigation" data-topbar>
