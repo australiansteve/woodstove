@@ -19,96 +19,88 @@
 
 <body <?php body_class(); ?>>
 
+	<div id="page" class="hfeed site">
 
-<div class="off-canvas-wrap" data-offcanvas>
-	<div class="inner-wrap">
+		<header id="masthead" class="site-header" role="banner">
 
-		<nav class="tab-bar show-for-small-only">
-			<section class="left-small">
-				<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
-			</section>
-		</nav>
+			<div class="row"><!-- .row start -->
 
-		<!-- Off Canvas Menu -->
-		<aside class="left-off-canvas-menu">
-		<!-- whatever you want goes here -->
-			<ul>
-				<li><a href="<?php bloginfo('url'); ?>">Home</a></li>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => '', 'menu_class' => '', 'menu_id' => '', 'items_wrap' => '%3$s' ) ); ?>
-			</ul>
-		</aside>
+				<div class="small-12 columns"><!-- .columns start -->
 
+					<div class="site-branding">
 
-<div id="page" class="hfeed site">
+						<div class="row"><!-- .row start -->
 
-	<header id="masthead" class="site-header" role="banner">
+							<div class="small-12 columns"><!-- .columns start -->
 
-		<div class="row"><!-- .row start -->
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="site-logo" src="http://australiansteve.com/blog/wp-content/uploads/2015/04/australian-steve-logo-white.png" /></a>
 
-			<div class="small-12 columns"><!-- .columns start -->
+							</div><!-- .columns end -->
 
-				<div class="site-branding">
+						</div><!-- .row end -->
 
-					<div class="row"><!-- .row start -->
+						<div class="row"><!-- .row start -->
 
-						<div class="small-12 columns"><!-- .columns start -->
+							<div class="small-12 columns"><!-- .columns start -->
 
-							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="site-logo" src="http://australiansteve.com/blog/wp-content/uploads/2015/04/australian-steve-logo-white.png" /></a>
+								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 
-						</div><!-- .columns end -->
+							</div><!-- .columns end -->
 
-					</div><!-- .row end -->
+							<div class="small-12 columns"><!-- .columns start -->
 
-					<div class="row"><!-- .row start -->
+								<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 
-						<div class="small-12 columns"><!-- .columns start -->
+							</div><!-- .columns end -->
 
-							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+						</div><!-- .row end -->
 
-						</div><!-- .columns end -->
+					</div><!-- .site-branding -->
 
-						<div class="small-12 columns"><!-- .columns start -->
+				</div><!-- .columns end -->
 
-							<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+			</div><!-- .row end -->
 
-						</div><!-- .columns end -->
+		</header><!-- #masthead -->
 
-					</div><!-- .row end -->
+		<div class="main-navigation">
 
-				</div><!-- .site-branding -->
+			<div class="row"><!-- .row start -->
 
-			</div><!-- .columns end -->
+				<div class="small-12 columns"><!-- .columns start -->
 
-		</div><!-- .row end -->
+						<div class="title-bar show-for-small-only" data-responsive-toggle="primary-menu" data-hide-for="medium">
+								<button class="menu-icon" type="button" data-toggle=""></button>
+								<div class="title-bar-title">Menu</div>
+						</div>
 
-	</header><!-- #masthead -->
+						<div id="primary-menu" class="top-bar primary-navigation" data-topbar>
+							
+							<div class="top-bar-right">
 
-	<div class="main-navigation">
+								<!-- Right Nav Section -->
+								<ul class="vertical medium-horizontal menu">
 
-		<div class="row"><!-- .row start -->
+									<?php
+									 	$args = array (
+										 	'theme_location' 	=> 'primary',
+										 	'container' 		=> '',
+										 	'menu_class' 		=> '',
+										 	'menu_id' 			=> '',
+										 	'items_wrap' 		=> '%3$s'
+									 	);
+										wp_nav_menu( $args );
+									?>
+								</ul>
 
-			<div class="small-12 columns"><!-- .columns start -->
+							</div>
 
-				<div class="sticky">
+						</div>
 
-					<nav id="site-navigation" class="top-bar" data-topbar role="navigation">
-						<ul class="title-area">
-					    	<li class="name"></li>
-					     	<!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-					    	<li class="toggle-topbar menu-icon"><a href=""><span></span></a></li>
-					  	</ul>
+				</div><!-- .columns -->
 
-						<section class="top-bar-section">
-							<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-						</section>
-					</nav><!-- #site-navigation -->
+			</div><!-- .row -->
 
-				</div><!-- .sticky -->
+		</div><!-- .main-navigation -->
 
-			</div><!-- .columns end -->
-
-		</div><!-- .row end -->
-
-	</div><!-- .main-navigation -->
-
-	<div id="content" class="site-content">
+		<div id="content" class="site-content">

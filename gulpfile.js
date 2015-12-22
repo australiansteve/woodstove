@@ -1,48 +1,43 @@
 // Load our plugins
-var	gulp			=	require('gulp'),
-	sass			=	require('gulp-ruby-sass'),  // Our sass compiler
-	notify			=	require('gulp-notify'), // Basic gulp notificatin using OS
-	minifycss		=	require('gulp-minify-css'), // Minification
-	rename			=	require('gulp-rename'), // Allows us to rename our css file prior to minifying 
-	autoprefixer	=	require('gulp-autoprefixer'); // Adds vendor prefixes for us
+var	gulp			= require('gulp'),
+	sass			= require('gulp-sass'),  // Our sass compiler
+	notify			= require('gulp-notify'), // Basic gulp notificatin using OS
+	sourcemaps		= require('gulp-sourcemaps'), // Sass sourcemaps
+	rename			= require('gulp-rename'), // Allows us to rename our css file prior to minifying
+	autoprefixer		= require('gulp-autoprefixer'), // Adds vendor prefixes for us
+	concat			= require('gulp-concat'), // Concat our js
+	uglify			= require('gulp-uglify'), // Minify our js
+	jshint 			= require('gulp-jshint'); // Checks for js errors
+
 
 // Our 'styles' tasks, which handles our sass actions such as compliling and minification
-
 gulp.task('styles', function() {
-	return sass('assets/sass/', {
-			style: 'expanded',
-			lineNumbers: true,
-			container: 'woodstove',
-			sourcemap: true
+	gulp.src('assets/sass/**/*.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass({
+			// outputStyle: 'compressed'
 		})
 		.on('error', notify.onError(function(error) {
 			return "Error: " + error.message;
 		}))
-		.pipe(autoprefixer({ 
-			browsers: ['last 2 versions', 'ie >= 8']
+		)
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions', 'ie >= 9']
 		})) // our autoprefixer - add and remove vendor prefixes using caniuse.com
-		.pipe(gulp.dest('assets/css')) // Location of our app.css file
-		.pipe(browserSync.reload({stream:true})) // CSS injection when app.css file is written
-		.pipe(rename({suffix: '.min'})) // Create a copy version of our compiled app.css file and name it app.min.css
-		.pipe(minifycss({
-			keepSpecialComments:0
-		})) // Minify our newly copied app.min.css file
-		.pipe(gulp.dest('assets/css')) // Save app.min.css onto this directory	
-		.pipe(browserSync.reload({stream:true})) // CSS injection when app.min.css file is written
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest('./assets/dist/css')) // Location of our app.css file
 		.pipe(notify({
 			message: "Styles task complete!"
 		}));
 });
 
-//Our 'deploy' task which deploys on a local dev environment
 
+//Our 'deploy' task which deploys on a local dev environment
 gulp.task('deploylocal', function() {
 
 	var files = [
-		'assets/components/modernizr/modernizr.js',
-		'assets/components/fastclick/lib/fastclick.js',
-		'assets/components/foundation/js/foundation.min.js',
-		'assets/css/*', 
+		'assets/dist/**/*', 
+		'node_modules/foundation-sites/dist/**/*', 
 		'inc/**.*',
 		'js/**/*.js',
 		'languages/**.*',
@@ -58,8 +53,31 @@ gulp.task('deploylocal', function() {
 	        .pipe(gulp.dest(dest));
 });
 
-// Our default gulp task, which runs 'styles' when a sass file changes.  This is task is executed by typing 'gulp' on the Terminal
-gulp.task('default', ['styles', 'deploylocal'], function() {
-	// Watch our sass files and run 'styles' task when changes are made
-	gulp.watch('assets/sass/**/*.scss', ['styles']);
-})
+
+// Our 'scripts' task, which handles our javascript elements
+gulp.task('js', function() {
+	return gulp.src('assets/js/**/*.js')
+		.pipe(concat('app.js'))
+		.pipe(gulp.dest('./assets/dist/js'))
+		.pipe(rename({suffix: '.min'}))
+		.pipe(uglify()
+		.on('error', notify.onError(function(error) {
+			return "Error: " + error.message;
+		}))
+		)
+		.pipe(gulp.dest('./assets/dist/js'))
+		.pipe(notify({ message: "Scripts task complete!"}));
+});
+
+
+// Our 'jsHint' task, which checks for JS errors
+gulp.task('jsHint', function() {
+	return gulp.src('./assets/js/**/*.js')
+		.pipe(jshint())
+		.pipe(jshint.reporter('default'))
+		.pipe( notify( { message: "jsHint task complete", onLast: true } ) );
+} );
+
+
+// Our default gulp task, which runs all of our tasks upon typing in 'gulp' in Terminal
+gulp.task('default', ['styles', 'js', 'jsHint', 'deploylocal']);

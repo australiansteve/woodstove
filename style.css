@@ -4,16 +4,15 @@ Theme URI: https://github.com/australiansteve/woodstove
 Author: Zeek Interactive
 Author URI: http://zeek.com
 Description: Description
-Version: 0.0.1
+Version: 2.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: woodstove
-Tags: Foundation, sass, gulp, bower
+Tags: Foundation, sass, gulp
 
 Woodstove is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 
 */
-
 
 /* Overwrite default styling of lists in 'jquery-archive-list-widget' */
 .widget.widget_jal_widget ul {

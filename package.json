@@ -1,21 +1,20 @@
 {
   "devDependencies": {
     "browser-sync": "^2.2.1",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.1.0",
-    "gulp-minify-css": "^0.4.6",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.11.0",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.0",
-    "gulp-ruby-sass": "^1.0.0-alpha.3"
+    "gulp-sass": "^2.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.2.0"
   },
   "name": "woodstove",
   "description": "Woodstove - Zeek Starter Theme ===",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "main": "gulpfile.js",
-  "dependencies": {
-    "gulp": "^3.8.11",
-    "gulp-ruby-sass": "^1.0.0-alpha.3"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/australiansteve/woodstove/issues"
   },
-  "homepage": "https://github.com/australiansteve/woodstove"
+  "homepage": "https://github.com/australiansteve/woodstove",
+  "dependencies": {
+    "foundation-sites": "^6.0.5"
+  }
 }
