@@ -70,7 +70,7 @@
 				<div class="small-12 columns"><!-- .columns start -->
 
 						<div class="title-bar show-for-small-only" data-responsive-toggle="primary-menu" data-hide-for="medium">
-							<div data-toggle="">
+							<div data-toggle>
 								<button class="menu-icon" type="button" ></button>
 								<div class="title-bar-title">Menu</div>
 							</div>
@@ -78,14 +78,31 @@
 
 						<div id="primary-menu" class="top-bar primary-navigation" data-topbar>
 							
-							<div class="top-bar-right">
+							<div class="top-bar-left primary-menu">
 
-								<!-- Right Nav Section -->
 								<ul class="vertical medium-horizontal menu">
 
 									<?php
 									 	$args = array (
 										 	'theme_location' 	=> 'primary',
+										 	'container' 		=> '',
+										 	'menu_class' 		=> '',
+										 	'menu_id' 			=> '',
+										 	'items_wrap' 		=> '%3$s'
+									 	);
+										wp_nav_menu( $args );
+									?>
+								</ul>
+
+							</div>
+
+							<div class="top-bar-right secondary-menu">
+
+								<ul class="vertical medium-horizontal menu">
+
+									<?php
+									 	$args = array (
+										 	'theme_location' 	=> 'secondary',
 										 	'container' 		=> '',
 										 	'menu_class' 		=> '',
 										 	'menu_id' 			=> '',

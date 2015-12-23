@@ -27,26 +27,42 @@
 .main-navigation {
 	background: #000000;
 
-	#site-navigation {
+	ul {
+		margin: 0;
+
+		li {
+			text-align: center;
+
+			a {
+				background: #000000;
+		  		color: #FFFFFF;
+			}
+
+			a:hover {
+				color: #00a651;
+			}
+		}
+	}
+
+	.primary-navigation {
 		background: #000000;
+		padding: 0;
+	}
+
+	.primary-menu li.active a {
+		background-color: #008cba;
+	}
+
+	.menu.vertical > li {
+		border-bottom: 1px solid #FFFFFF;
 	}
 }
 
-.main-navigation ul {
-	margin: 0;
-}
+// Medium screens
+@media only screen and (min-width: 40.063em) { 
 
-.top-bar, .top-bar ul {
-	background-color: initial;
-}
+	.main-navigation .menu.vertical > li {
+		border: none;
+	}
 
-.top-bar-section li:not(.has-form) a:not(.button) {
-	background: #000000;
-  	color: #FFFFFF;
-}
-
-.top-bar-section li:not(.has-form) a:not(.button):hover {
-	background: #FFFFFF;
-  	color: #000000;
-  	font-weight: bold;
 }
